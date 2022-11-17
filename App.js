@@ -8,7 +8,7 @@ import ResultScreen from "./screens/ResultScreen";
 
 export default function App() {
   const [loaded] = useFonts({
-    Nunito: require("./assets/fonts/Nunito-Regular.ttf"),
+    Nunito: require("./assets/fonts/Nunito-SemiBold.ttf"),
   });
 
   const [userNumber, setUserNumber] = useState();
@@ -33,20 +33,20 @@ export default function App() {
 
   let content = <StartGameScreen onStartGame={handleStartGame} />;
 
+  if (!loaded) {
+    return null;
+  }
+
   if (userNumber && winOrLose === true) {
     content = <ResultScreen result={result}/>
   } else if (userNumber){
     content = <GameScreen handleResult={handleFinishGame}/>;
   }
 
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <View style={styles.container}>
       <Header
-        title={"Adivina el numero"}
+        title={"Adivina el número"}
         newStyles={{ fontFamily: "Nunito" }}
       />
       {content}
@@ -57,6 +57,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    fontSize:"16px",
+    fontSize: 20,
   },
 });

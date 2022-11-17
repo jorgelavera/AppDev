@@ -51,7 +51,7 @@ const StartGameScreen = ({ onStartGame }) => {
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
           <View style={styles.screen}>
             <Card>
-              <Text>Elije un numero</Text>
+              <Text>Elije un número:</Text>
               <Input value={value} onChangeText={handleInput} />
               <View style={styles.buttonContainer}>
                 <Pressable
@@ -96,6 +96,8 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     marginTop: 50,
+    fontsize:20,
+    fontFamily: "Nunito",
   },
   buttonContainer: {
     flexDirection: "row",
